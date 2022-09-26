@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Wallet Keeper Web3
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies I used and why:
 
-## Available Scripts
+- Native React with Vite.
+  - There was no need for something like Nextjs or Gatsby. Server Rendering wasn't going to change much, as SEO is not important (in this specific case), and because we are not going to fetch any type of data from the server. I choosed Vite over create-react-app as it is a much faster environment.
+- State management with Context Api.
+  - State management will not be a problem for this app, so I preferred to stick with a more simpler and easier approach than redux, the native Context Api.
+- Typescript.
+  - I mean who doesn't like Typescript :D
+- Emotion.
+  - It is better supported with React 18.
+- React Router.
+  - Basic routing functionalities.
+- React Hook Form.
+  - It's lighter and more performant than Formik, as it uses the idea of uncontrolled components by default. Also, as I knew that I would have a lot of small forms in this app (specially if we scale), it's important to padronize and centralize the logic between forms.
+- Ethers.
+  - Smaller bundle-size than Web3.js, and I also really like their Docs.
+- Framer Motion.
+  - For some fancy animations. I really like the small bundle-size you can achieve using the "m" component.
 
-In the project directory, you can run:
+## What and how I built this.
 
-### `yarn start`
+Still writing this part...
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to scale.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I didn't want to get out of the scope of the task, so I didn't develop most of the features that came into my mind. But this small app, even being a simple introduction, could actually scale with a few changes. First of all, a real database instead of localStorage, as it is pretty limited in size. Then, add a mobile version (this version doesn't support mobile). Finally, some very cool features, like actually being able to send transactions, check balances of all your ERC-20 and ERC-721 tokens, a history of transactions, etc.
 
-### `yarn test`
+## Where and what I researched.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Still writing this part...
