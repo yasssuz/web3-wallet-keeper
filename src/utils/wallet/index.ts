@@ -1,6 +1,6 @@
-import { Wallet, providers } from "ethers";
+import { Wallet, providers, utils } from "ethers";
 import { getErrorMessage } from "../error";
-import { PrivateWalletInfo } from "../types";
+import { PrivateWalletInfo, WalletInfo } from "../types";
 
 export async function importAndSafelyStoreWallet(
   mnemonic: string,
@@ -85,16 +85,17 @@ export async function getPrivateWalletInfo(
   };
 }
 
-export async function getWalletBalance(
-  rpcProvider: string,
+export async function getWalletInfo(
+  endpoint: string,
   walletAddress: string
-) {
-  let newWallet = Wallet.createRandom();
+): Promise<WalletInfo> {
   const provider = new providers.JsonRpcProvider(
-    "https://rinkeby-light.eth.linkpool.io/"
-  );
+      `${endpoint}${process.env.REACT_APP_INFURA_KEY}`
+    ),
+    balance = utils.formatEther(await provider.getBalance(walletAddress)),
+    txnCount = await provider.getTransactionCount(walletAddress);
 
-  newWallet = newWallet.connect(provider);
+  return { balance, txnCount };
 }
 
 export function storeEncryptedWallet(encryptedWallet: string): void {
