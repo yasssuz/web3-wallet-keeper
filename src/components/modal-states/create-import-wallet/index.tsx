@@ -171,6 +171,7 @@ function CreateOrImportWalletModalState({
             <Button
               variant='secondary'
               type='button'
+              size='medium'
               onClick={() => setIsModalOpen(false)}
             >
               Close

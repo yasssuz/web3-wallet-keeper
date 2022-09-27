@@ -162,6 +162,7 @@ function RecoverWallet({ setIsModalOpen }: RecoverWalletProps) {
           <Button
             variant='secondary'
             type='button'
+            size='medium'
             onClick={() => setIsModalOpen(false)}
           >
             Close
