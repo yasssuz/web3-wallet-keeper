@@ -9,6 +9,8 @@ import { WalletsContext } from "../../contexts/wallets";
 import HasNoWallets from "../../components/dashboard/has-no-wallets";
 import Modal from "../../components/shared/modal";
 import CreateOrImportWalletModalState from "../../components/modal-states/create-import-wallet";
+import Heading from "../../components/shared/typography/heading";
+import WalletData from "../../components/dashboard/wallet-data";
 
 // services and utils
 
@@ -44,9 +46,12 @@ function Dashboard({ index }: DashboardProps) {
             setIsImportWalletModalOpen={setIsImportWalletModalOpen}
           />
         )) ||
-          (index && <h1>index with wallets</h1>) || (
-            <h1>address with networks</h1>
-          )}
+          (index && (
+            <Heading as='h2' size='medium'>
+              You already created a few wallets! Open the sidebar to check them
+              out
+            </Heading>
+          )) || <WalletData />}
       </DashboardContainer>
       <Modal isOpen={isCreateWalletModalOpen}>
         <CreateOrImportWalletModalState
