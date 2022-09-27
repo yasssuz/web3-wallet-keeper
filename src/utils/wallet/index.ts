@@ -87,10 +87,11 @@ export async function getPrivateWalletInfo(
 
 export async function getWalletInfo(
   endpoint: string,
+  isInfura: boolean,
   walletAddress: string
 ): Promise<WalletInfo> {
   const provider = new providers.JsonRpcProvider(
-      `${endpoint}${process.env.REACT_APP_INFURA_KEY}`
+      isInfura ? `${endpoint}${process.env.REACT_APP_INFURA_KEY}` : endpoint
     ),
     balance = utils.formatEther(await provider.getBalance(walletAddress)),
     txnCount = await provider.getTransactionCount(walletAddress);

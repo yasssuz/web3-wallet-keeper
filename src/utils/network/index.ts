@@ -5,21 +5,25 @@ export function generateAndStoreBaseNetworks(): Network[] {
     {
       name: "Ethereum",
       currency: "ETH",
+      isInfura: true,
       endpoint: `https://mainnet.infura.io/v3/`,
     },
     {
       name: "Goerli",
       currency: "ETH",
+      isInfura: true,
       endpoint: `https://goerli.infura.io/v3/`,
     },
     {
       name: "Sepolia",
       currency: "ETH",
+      isInfura: true,
       endpoint: `https://sepolia.infura.io/v3/`,
     },
     {
       name: "Sokol Poa",
       currency: "SPOA",
+      isInfura: false,
       endpoint: `https://sokol.poa.network/`,
     },
   ];
