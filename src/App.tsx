@@ -10,6 +10,10 @@ import { WalletsProvider } from "./contexts/wallets";
 
 // services and utils
 import { globalStyles } from "./utils/global";
+import {
+  generateAndStoreBaseNetworks,
+  getStoredNetworks,
+} from "./utils/network";
 
 // images
 
@@ -19,8 +23,10 @@ import { globalStyles } from "./utils/global";
 
 function App() {
   useEffect(() => {
-    const currentTheme = localStorage.getItem("data-theme");
+    const currentTheme = localStorage.getItem("data-theme"),
+      storedNetworks = getStoredNetworks();
 
+    // handle theme
     document.body.setAttribute(
       "data-theme",
       (currentTheme === "dark" && "dark") ||
@@ -34,6 +40,9 @@ function App() {
 
       if (themeSwitcherElement) themeSwitcherElement.checked = true;
     }
+
+    // handle networks
+    if (!storedNetworks) generateAndStoreBaseNetworks();
   }, []);
 
   return (
