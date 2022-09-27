@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 
 // styles
+import { OutletContainer } from "./styles";
 
 // components
 import Header from "../../components/header";
@@ -29,7 +30,12 @@ function BaseLayout() {
         setIsSidebarOpen={setIsSidebarOpen}
         currentAddress={address}
       />
-      <Outlet />
+      <OutletContainer
+        isSidebarOpen={isSidebarOpen}
+        style={{ marginLeft: isSidebarOpen ? 300 : 0 }}
+      >
+        <Outlet />
+      </OutletContainer>
     </>
   );
 }
