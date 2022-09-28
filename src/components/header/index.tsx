@@ -31,7 +31,9 @@ function Header({ isSidebarOpen, currentAddress }: HeaderProps) {
 
   return (
     <HeaderContainer>
-      <LogoArea isSidebarOpen={isSidebarOpen}></LogoArea>
+      <LogoArea isSidebarOpen={isSidebarOpen}>
+        <img src='/logos/logo-binance.svg' alt='binance' />
+      </LogoArea>
       <InteractionArea>
         <Heading
           as='h1'
