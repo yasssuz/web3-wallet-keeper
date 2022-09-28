@@ -33,7 +33,15 @@ function Header({ isSidebarOpen, currentAddress }: HeaderProps) {
     <HeaderContainer>
       <LogoArea isSidebarOpen={isSidebarOpen}></LogoArea>
       <InteractionArea>
-        <Heading as='h1' size='large'>
+        <Heading
+          as='h1'
+          size='large'
+          style={{
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
+            overflow: "hidden",
+          }}
+        >
           {currentAddress}
         </Heading>
         <Button
