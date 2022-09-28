@@ -42,12 +42,6 @@ export const LogoArea = styled.div<{ isSidebarOpen: boolean }>`
     width: ${props => (props.isSidebarOpen ? "261px" : "200px")};
     padding-left: 24px;
   }
-
-  ${MediaQuery.sm} {
-    width: 56px;
-    padding-left: 16px;
-    border-right: 0;
-  }
 `;
 
 export const LogoDesktop = styled.svg`
