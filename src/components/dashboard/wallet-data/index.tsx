@@ -1,6 +1,4 @@
 // react or any other library related conten
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 // styles
 import { Container } from "./styles";
@@ -9,7 +7,6 @@ import { Container } from "./styles";
 
 // services and utils
 import { getStoredNetworks } from "../../../utils/network";
-import { getStoredEncryptedWalletsAddress } from "../../../utils/wallet";
 import NetworkData from "./network-data";
 
 // images
@@ -19,15 +16,6 @@ import NetworkData from "./network-data";
 // interfaces
 
 function WalletData() {
-  const { address } = useParams();
-
-  useEffect(() => {
-    const storedAddresses = getStoredEncryptedWalletsAddress();
-
-    if (!storedAddresses.find(storedAddress => storedAddress === address))
-      return;
-  }, [address]);
-
   return (
     <>
       <Container>
