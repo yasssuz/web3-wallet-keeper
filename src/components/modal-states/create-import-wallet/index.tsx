@@ -2,7 +2,7 @@
 import { utils } from "ethers";
 import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // styles
 import {
@@ -61,8 +61,7 @@ function CreateOrImportWalletModalState({
       register,
       handleSubmit,
       formState: { errors },
-    } = useForm<FormProps>(),
-    navigate = useNavigate();
+    } = useForm<FormProps>();
 
   const onSubmit: SubmitHandler<FormProps> = async ({
     decryptionKey,
@@ -162,9 +161,13 @@ function CreateOrImportWalletModalState({
             <Link
               to={`/dashboard/${walletData.address}`}
               style={{ width: "100%", textDecoration: "none" }}
-              reloadDocument
             >
-              <Button variant='primary' size='medium' type='button'>
+              <Button
+                variant='primary'
+                size='medium'
+                type='button'
+                onClick={() => setIsModalOpen(false)}
+              >
                 Check new wallet
               </Button>
             </Link>
