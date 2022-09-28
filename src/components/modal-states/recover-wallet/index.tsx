@@ -59,7 +59,7 @@ function RecoverWallet({ setIsModalOpen }: RecoverWalletProps) {
       wallet =>
         // wallet is being recognized as type Wallet, and JSON.parse expects a string.
         // unfortunately we can't overwrite it's type, so we need to use type any.
-        "0x" + JSON.parse(wallet).address === address
+        "0x" + JSON.parse(wallet).address === address?.toLocaleLowerCase()
     );
     if (!encryptedWallet) return; // just making it type safe, as typescript expects string | undefined
     const decryptedWallet = await decryptJSONWallet(

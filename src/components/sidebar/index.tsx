@@ -78,7 +78,12 @@ function Sidebar({
           <AddressList>
             {storedAddressesList?.map((address, index) => (
               <Address
-                className={address === currentAddress ? "selected" : ""}
+                className={
+                  address.toLocaleLowerCase() ===
+                  currentAddress?.toLocaleLowerCase()
+                    ? "selected"
+                    : ""
+                }
                 key={index}
               >
                 <Link to={`/dashboard/${address}`}>
