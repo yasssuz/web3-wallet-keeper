@@ -35,7 +35,7 @@ The 3 main features, which are wallet creation, wallet import and wallet recover
 
 ## How to scale.
 
-I didn't want to get out of the scope of the task, so I didn't develop most of the features that came into my mind. But this small app, even being a simple introduction, could actually scale with a few changes. First of all, a real database instead of localStorage, as it is pretty limited in size. Then, add a mobile version (this version doesn't support mobile). Finally, some very cool features, like actually being able to send transactions, check balances of all your ERC-20 and ERC-721 tokens, a history of transactions, adding custom networks (this one I was actually developing), etc.
+I didn't want to get out of the scope of the task, so I didn't develop most of the features that came into my mind. But this small app, even being a simple introduction, could actually scale with a few changes. First of all, a real database instead of localStorage, as it is pretty limited in size. Then, add a proper mobile version. Finally, some very cool features, like actually being able to send transactions, check balances of all your ERC-20 and ERC-721 tokens, a history of transactions, adding custom networks (this one I was actually developing), etc.
 
 I hope that there aren't any bugs :D
 
