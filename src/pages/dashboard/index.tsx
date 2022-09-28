@@ -1,4 +1,5 @@
 // react or any other library related content
+import { useParams } from "react-router-dom";
 import { useContext, useState } from "react";
 
 // styles
@@ -11,6 +12,7 @@ import Modal from "../../components/shared/modal";
 import CreateOrImportWalletModalState from "../../components/modal-states/create-import-wallet";
 import Heading from "../../components/shared/typography/heading";
 import WalletData from "../../components/dashboard/wallet-data";
+import WalletDoesntExist from "../../components/dashboard/wallet-doesnt-exist";
 
 // services and utils
 
@@ -33,12 +35,18 @@ function Dashboard({ index }: DashboardProps) {
     [isImportWalletModalOpen, setIsImportWalletModalOpen] =
       useState<boolean>(false);
 
-  const { storedAddressesList } = useContext(WalletsContext);
+  const { storedAddressesList } = useContext(WalletsContext),
+    { address } = useParams(),
+    doesWalletExist = storedAddressesList?.find(
+      storedAddress => storedAddress.toLowerCase() === address?.toLowerCase()
+    );
 
   return (
     <>
       <DashboardContainer
-        isCentralized={!storedAddressesList?.length || !!index}
+        isCentralized={
+          !storedAddressesList?.length || !!index || !doesWalletExist
+        }
       >
         {(index && !storedAddressesList?.length && (
           <HasNoWallets
@@ -51,7 +59,13 @@ function Dashboard({ index }: DashboardProps) {
               You already created a few wallets! Open the sidebar to check them
               out
             </Heading>
-          )) || <WalletData />}
+          )) ||
+          (doesWalletExist && <WalletData />) || (
+            <WalletDoesntExist
+              setIsCreateWalletModalOpen={setIsCreateWalletModalOpen}
+              setIsImportWalletModalOpen={setIsImportWalletModalOpen}
+            />
+          )}
       </DashboardContainer>
       <Modal isOpen={isCreateWalletModalOpen}>
         <CreateOrImportWalletModalState
