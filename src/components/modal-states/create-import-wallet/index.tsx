@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 
 // styles
 import {
+  CloseModalButton,
   Container,
   DoNextButtons,
   EncryptedWalletContainer,
   EncryptingWalletContainer,
+  TopArea,
 } from "./styles";
 
 // components
@@ -118,9 +120,14 @@ function CreateOrImportWalletModalState({
 
   return (
     <Container onSubmit={handleSubmit(onSubmit)}>
-      <Heading as='h2' size='medium'>
-        {create ? "Create New Wallet" : "Import Wallet"}
-      </Heading>
+      <TopArea>
+        <Heading as='h2' size='medium'>
+          {create ? "Create New Wallet" : "Import Wallet"}
+        </Heading>
+        <CloseModalButton type='button' onClick={() => setIsModalOpen(false)}>
+          <img src='/icons/icon-cross.svg' alt='close sidebar' />
+        </CloseModalButton>
+      </TopArea>
       {(walletData && (
         <EncryptedWalletContainer>
           <Text as='p' size='large' weight='normal'>

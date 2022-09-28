@@ -5,10 +5,12 @@ import { useParams } from "react-router-dom";
 
 // styles
 import {
+  CloseModalButton,
   Container,
   DecryptedWalletContainer,
   DecryptingWalletContainer,
   RecoverForm,
+  TopArea,
 } from "./styles";
 
 // components
@@ -111,9 +113,14 @@ function RecoverWallet({ setIsModalOpen }: RecoverWalletProps) {
 
   return (
     <Container>
-      <Heading as='h2' size='medium'>
-        Recover Wallet
-      </Heading>
+      <TopArea>
+        <Heading as='h2' size='medium'>
+          Recover Wallet
+        </Heading>
+        <CloseModalButton type='button' onClick={() => setIsModalOpen(false)}>
+          <img src='/icons/icon-cross.svg' alt='close sidebar' />
+        </CloseModalButton>
+      </TopArea>
       {(walletData && (
         <DecryptedWalletContainer>
           <Text as='p' size='large' weight='normal'>

@@ -5,6 +5,20 @@ export const Container = styled.section`
   display: grid;
 `;
 
+export const TopArea = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const CloseModalButton = styled.button`
+  line-height: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
 export const RecoverForm = styled.form`
   gap: 20px;
   display: grid;
