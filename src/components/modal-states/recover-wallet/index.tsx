@@ -210,8 +210,8 @@ function RecoverWallet({ setIsModalOpen }: RecoverWalletProps) {
                 {errorMessage}
               </Text>
             )}
-            <Button variant='primary' size='medium' type='submit'>
-              Create Wallet
+            <Button variant='tertiary' size='medium' type='submit'>
+              Recover Wallet
             </Button>
           </RecoverForm>
         )}
