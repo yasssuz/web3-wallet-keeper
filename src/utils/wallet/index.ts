@@ -17,7 +17,7 @@ export async function importAndSafelyStoreWallet(
           importedWallet.address.toLocaleLowerCase()
       )
     )
-      throw "Wallet already imported";
+      throw new Error("Wallet already imported");
 
     const encryptedWallet = await importedWallet.encrypt(
       decryptionKey,
