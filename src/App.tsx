@@ -42,7 +42,11 @@ function App() {
     }
 
     // handle networks
-    if (!storedNetworks) generateAndStoreBaseNetworks();
+    if (
+      !storedNetworks || // check if exists
+      storedNetworks?.[0]?.isInfura // check if deprecated version
+    )
+      generateAndStoreBaseNetworks();
   }, []);
 
   return (

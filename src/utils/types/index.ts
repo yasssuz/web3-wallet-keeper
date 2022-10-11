@@ -13,4 +13,7 @@ export interface Network {
   endpoint: string;
   isInternal: boolean;
   currency: string;
+
+  // deprecated
+  isInfura?: boolean;
 }
