@@ -11,6 +11,6 @@ export interface WalletInfo {
 export interface Network {
   name: string;
   endpoint: string;
-  isInfura: boolean;
+  isInternal: boolean;
   currency: string;
 }

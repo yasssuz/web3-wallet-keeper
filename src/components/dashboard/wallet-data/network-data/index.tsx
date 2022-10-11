@@ -21,7 +21,12 @@ import { getWalletInfo } from "../../../../utils/wallet";
 
 interface NetworkDataProps extends Network {}
 
-function NetworkData({ name, endpoint, isInfura, currency }: NetworkDataProps) {
+function NetworkData({
+  name,
+  endpoint,
+  isInternal,
+  currency,
+}: NetworkDataProps) {
   const [walletInfo, setWalletInfo] = useState<WalletInfo | null>(),
     [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -31,12 +36,12 @@ function NetworkData({ name, endpoint, isInfura, currency }: NetworkDataProps) {
     setIsLoading(true);
     const walletInfoData = await getWalletInfo(
       endpoint,
-      isInfura,
+      isInternal,
       address as string
     );
     setWalletInfo(walletInfoData);
     setIsLoading(false);
-  }, [address, endpoint, isInfura]);
+  }, [address, endpoint, isInternal]);
 
   useEffect(() => {
     if (!address) return;
